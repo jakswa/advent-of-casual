@@ -17,7 +17,8 @@ function buildChart(json) {
         scales: {
           xAxes: [{
             type: 'time',
-            distribution: 'series'
+            distribution: 'series',
+            time: { unit: 'day' }
           }],
         //  yAxes: [{ stacked: true }]
         }
@@ -45,6 +46,7 @@ function buildData(json) {
     //set.data.push({x: now, y: starCount });
     data.datasets.push(set);
   });
+
   return data;
 }
 
