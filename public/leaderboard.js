@@ -21,7 +21,7 @@ class LeaderBoard extends LitElement {
 
   static names(members) {
     return members.map(i => i.name)
-      .sort((a,b) => a.toLowerCase() > b.toLowerCase() ? 1 : -1);
+      .sort((a,b) => Math.round(Math.random() * 2 - 1));
   }
 
   constructor() {
