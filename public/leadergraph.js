@@ -62,7 +62,10 @@ function buildData(json) {
   return data;
 }
 
+var yearArg = document.location.search.slice(1)
+  .split('&').map(chunk => chunk.split('='))
+  .find(arg => arg[0] == 'year')
 
-fetch('/leaderboard.json')
+fetch('/leaderboard/' + (yearArg && yearArg[1] || 2020))
   .then(res => res.json())
   .then(json => buildChart(json));

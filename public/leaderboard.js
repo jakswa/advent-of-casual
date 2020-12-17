@@ -31,7 +31,7 @@ class LeaderBoard extends LitElement {
   }
   
   fetchMembers() {
-    fetch('/leaderboard.json')
+    fetch('/leaderboard')
       .then(res => res.json())
       .then(json => {
         let members = Object.values(json.members);

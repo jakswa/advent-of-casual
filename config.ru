@@ -11,9 +11,9 @@ class App < Roda
       r.redirect '/leaderboard.html'
     end
 
-    r.get 'leaderboard.json' do
+    r.get 'leaderboard', [Integer, true] do |year|
       response['Content-Type'] = 'application/json'
-      Leaderboard.api_response
+      Leaderboard.api_response(year: year || 2020)
     end
 
   end
