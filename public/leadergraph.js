@@ -1,6 +1,18 @@
 import * as _ from 'https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js';
 
-const COLORMAP = {"red":"rgb(255, 99, 132)","orange":"rgb(255, 159, 64)","yellow":"rgb(255, 205, 86)","green":"rgb(75, 192, 192)","blue":"rgb(54, 162, 235)","purple":"rgb(153, 102, 255)","grey":"rgb(201, 203, 207)"};
+const COLORMAP = {
+  "red":"rgb(255, 99, 132)",
+  "orange":"rgb(255, 159, 64)",
+  "yellow":"rgb(255, 205, 86)",
+  "green":"rgb(75, 192, 192)",
+  "blue":"rgb(54, 162, 235)",
+  "purple":"rgb(153, 102, 255)",
+  "iorange":"rgb(0, 96, 192)",
+  "ipink":"rgb(36, 207, 125)",
+  "ipurple":"rgb(102,153,0)",
+  "iyellow":"rgb(0, 50, 169)",
+  "grey":"rgb(201, 203, 207)",
+};
 const COLORS = Object.values(COLORMAP);
 
 var colorInd = 0;
