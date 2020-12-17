@@ -20,7 +20,8 @@ class LeaderBoard extends LitElement {
   }
 
   static names(members) {
-    return members.map(i => i.name).sort();
+    return members.map(i => i.name)
+      .sort((a,b) => a.toLowerCase() > b.toLowerCase() ? 1 : -1);
   }
 
   constructor() {
