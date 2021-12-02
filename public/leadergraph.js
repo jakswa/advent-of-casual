@@ -47,11 +47,11 @@ function buildData(json) {
     var color = nextColor();
     var set = { fill: false, borderColor: color, label: member.name, data: [] };
     var days = member.completion_day_level;
-    var starCount = 0;
     for (var day in days) {
+      var part = 0;
       for (var star in days[day]) {
         var ts = days[day][star].get_star_ts;
-        starCount += 1;
+        var starCount = (day - 1) * 2 + part++;
         set.data.push({x: new Date(parseInt(ts) * 1000), y: starCount });
       }
     }
