@@ -47,12 +47,18 @@ function buildData(json) {
     var color = nextColor();
     var set = { fill: false, borderColor: color, label: member.name, data: [] };
     var days = member.completion_day_level;
+    var starCount, prevStars = 0;
     for (var day in days) {
       var part = 0;
       for (var star in days[day]) {
         var ts = days[day][star].get_star_ts;
-        var starCount = (day - 1) * 2 + part++;
+        starCount = (day - 1) * 2 + part++;
+        if (starCount - prevStars > 1) {
+          data.datasets.push(set);
+          set = { fill: false, borderColor: color, label: member.name, data: [] };
+        }
         set.data.push({x: new Date(parseInt(ts) * 1000), y: starCount });
+        prevStars = starCount;
       }
     }
     //set.data.push({x: now, y: starCount });
