@@ -11,11 +11,12 @@ class App < Roda
       r.redirect '/leaderboard.html'
     end
 
-    r.get 'leaderboard', [Integer, true] do |year|
+    r.get 'leaderboard' do
       response['Content-Type'] = 'application/json'
-      Leaderboard.api_response(year: year || 2020)
+      year = r.params.fetch('year', Time.now.year.to_s)
+      board = r.params.fetch('board', '29193')
+      Leaderboard.api_response(year: year, board: board) 
     end
-
   end
 end
 
