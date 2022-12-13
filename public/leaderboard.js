@@ -31,12 +31,7 @@ class LeaderBoard extends LitElement {
   }
   
   fetchMembers() {
-    var yearArg = document.location.search.slice(1)
-      .split('&').map(chunk => chunk.split('='))
-      .find(arg => arg[0] == 'year');
-    yearArg = yearArg ? yearArg[1] : 2020;
-
-    fetch('/leaderboard/' + yearArg)
+    fetch('/leaderboard' + document.location.search)
       .then(res => res.json())
       .then(json => {
         let members = Object.values(json.members);
